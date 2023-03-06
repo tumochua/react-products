@@ -17,11 +17,18 @@ function App() {
         products.map((product) => {
           return (
             <div key={product.id} className="cards">
-              {/* <div> */}
               <img src={product.image} alt="" className="image" />
               <div>{product.name}</div>
+              {/* <div>{product.address}</div> */}
+              <div
+                dangerouslySetInnerHTML={{
+                  __html:
+                    product &&
+                    product.description &&
+                    product.description.replace(/\n/g, "<br>"),
+                }}
+              />
             </div>
-            // </div>
           );
         })}
     </div>
